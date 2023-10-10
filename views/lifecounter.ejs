@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Counter</title>
+    <style>
+      .count-parent-div {
+        display: flex;
+        font-size: 200px;
+        margin-top: 8rem;
+      }
+
+      .child-div-one,
+      .child-div-two {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        margin: 10px;
+      }
+
+      .child-div-one button,
+      .child-div-two button {
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        font-size: 50px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .child-div-one button:hover,
+      .child-div-two button:hover {
+        background-color: #333;
+        border-radius: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="count-parent-div">
+      <div class="child-div-one">
+        <button onclick="incrementOne()">+</button>
+        <div id="countOne"><%= countOne %></div>
+        <button onclick="decrementOne()">-</button>
+      </div>
+      <div class="child-div-two">
+        <button onclick="incrementTwo()">+</button>
+        <div id="countTwo"><%= countTwo %></div>
+        <button onclick="decrementTwo()">-</button>
+      </div>
+    </div>
+    <!-- Include Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+
+    <!-- Your script for handling increments and decrements -->
+    <script src="/client.js"></script>
+  </body>
+</html>
