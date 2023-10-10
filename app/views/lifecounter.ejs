@@ -8,7 +8,6 @@
       .count-parent-div {
         display: flex;
         font-size: 200px;
-        margin-top: 8rem;
       }
 
       .child-div-one,
@@ -17,17 +16,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px;
         background-color: black;
         color: white;
         border-radius: 10px;
         margin: 10px;
       }
-
+      .whole-div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 200px;
+      }
       .child-div-one button,
       .child-div-two button {
-        margin: 5px;
-        padding: 10px 20px;
+        /* margin: 5px;
+        padding: 10px 20px; */
         background-color: black;
         color: white;
         font-size: 50px;
@@ -45,19 +50,29 @@
   <body>
     <div class="count-parent-div">
       <div class="child-div-one">
-        <button onclick="incrementOne()">+</button>
-        <div id="countOne"><%= countOne %></div>
-        <button onclick="decrementOne()">-</button>
+        <div class="whole-div" onclick="incrementOne()">
+          <button>+</button>
+        </div>
+        <div class="count-value" id="countOne"><%= countOne %></div>
+        <div class="whole-div" onclick="decrementOne()">
+          <button>-</button>
+        </div>
       </div>
       <div class="child-div-two">
-        <button onclick="incrementTwo()">+</button>
-        <div id="countTwo"><%= countTwo %></div>
-        <button onclick="decrementTwo()">-</button>
+        <div class="whole-div" onclick="incrementTwo()">
+          <button>+</button>
+        </div>
+        <div class="count-value-two" id="countTwo"><%= countTwo %></div>
+        <div class="whole-div" onclick="decrementTwo()">
+          <button>-</button>
+        </div>
       </div>
     </div>
     <!-- Include Socket.IO -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
-
+    <script>
+      window.baseurl = "<%= baseurl %>";
+    </script>
     <!-- Your script for handling increments and decrements -->
     <script src="/client.js"></script>
   </body>
