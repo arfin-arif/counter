@@ -1,5 +1,4 @@
-const CLIENT_URL = "http://localhost:4000";
-const socket = io(CLIENT_URL, {
+const socket = io(baseurl, {
   withCredentials: true,
 });
 
